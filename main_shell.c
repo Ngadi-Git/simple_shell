@@ -42,7 +42,7 @@ void parseInput(char *input, char **cmd_argv)
 {
 	int cmd_argc = 0;
 	const char *delim = " ";
-	char *token = strtok(input, delim);
+	char *token = _strtok(input, delim);
 
 	while (*input == ' ')
 		input++;
@@ -52,7 +52,7 @@ void parseInput(char *input, char **cmd_argv)
 		{
 			cmd_argv[cmd_argc++] = token;
 		}
-		token = strtok(NULL, delim);
+		token = _strtok(NULL, delim);
 	}
 	cmd_argv[cmd_argc] = NULL;
 }

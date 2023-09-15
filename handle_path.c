@@ -71,7 +71,7 @@ void executeRelPATH(char **cmd_argv, char *name)
 	if (path != NULL)
 	{
 		my_strncpy(path_copy, path, MAX_INPUT_SIZE);
-		token = strtok(path_copy, ":");
+		token = _strtok(path_copy, ":");
 		while (token != NULL)
 		{
 			my_snprintf(full_path, sizeof(full_path), "%s/%s", token, cmd_argv[0]);
@@ -96,7 +96,7 @@ void executeRelPATH(char **cmd_argv, char *name)
 					break;
 				}
 			}
-			token = strtok(NULL, ":");
+			token = _strtok(NULL, ":");
 		}
 		if (token == NULL)
 			perror(name);

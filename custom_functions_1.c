@@ -51,6 +51,49 @@ void handle_int(char *str, size_t size, size_t *n, va_list args)
 	str[(*n)++] = buf[k];
 }
 /**
+ * c_strtok - Breaks a string into tokens.
+ * @str: String to tokenize.
+ * @delimeter: Delimiter characters.
+ *
+ * Return: Pointer to the next token, or NULL if no more tokens
+ */
+char *_strtok(char *str, const char *delimeter)
+{
+        static char *last_token;
+        char *token_start;
+        int in_quotes;
+
+        in_quotes = 0;
+
+        if (str != NULL)
+                last_token = str;
+        else if (last_token == NULL)
+                return (NULL);
+
+        token_start = last_token;
+
+        while (*last_token != '\0')
+        {
+                if (*last_token == '"')
+                        in_quotes = !in_quotes;
+                else if (*last_token == *delimeter && !in_quotes)
+                {
+                        *last_token = '\0';
+                        last_token++;
+                        return (token_start);
+                }
+                last_token++;
+        }
+
+        if (*token_start == '\0')
+        {
+                last_token = NULL;
+                return (NULL);
+        }
+
+        return (token_start);
+}
+/**
  * _strcmp - compares two strings
  * @s1: string 1
  * @s2: string 2

@@ -30,5 +30,6 @@ int my_snprintf(char *str, size_t size, const char *format, ...);
 char *my_strncpy(char *dest, const char *src, size_t n);
 void handle_string(char *str, size_t size, size_t *n, va_list args);
 void handle_int(char *str, size_t size, size_t *n, va_list args);
+char *_strtok(char *str, const char *delimeter);
 
 #endif
