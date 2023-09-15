@@ -33,7 +33,7 @@ void readInput(char **input)
 		(*input)[input_len - 1] = '\0';
 }
 /**
- * parseInput - parses the enterwd input
+ * parseInput - parses the entered input
  * @input: input passed
  * @cmd_argv: pointer to a pointer
  *

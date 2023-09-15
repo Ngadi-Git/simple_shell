@@ -1,11 +1,11 @@
 #include "shell.h"
+
 /**
  * handle_string - handles string specifier
  * @str: string
  * @size: size of string
  * @n: string
  * @args: va list
- *
  */
 void handle_string(char *str, size_t size, size_t *n, va_list args)
 {
@@ -17,13 +17,13 @@ void handle_string(char *str, size_t size, size_t *n, va_list args)
 	while (s[j] != '\0' && *n < size - 1)
 		str[(*n)++] = s[j++];
 }
+
 /**
  * handle_int - handle integer specifier
  * @str: string
  * @size: size
  * @n: string
  * @args: va list
- *
  */
 void handle_int(char *str, size_t size, size_t *n, va_list args)
 {
@@ -48,8 +48,9 @@ void handle_int(char *str, size_t size, size_t *n, va_list args)
 		}
 	}
 	while (--k >= 0 && *n < size - 1)
-	str[(*n)++] = buf[k];
+		str[(*n)++] = buf[k];
 }
+
 /**
  * c_strtok - Breaks a string into tokens.
  * @str: String to tokenize.
@@ -59,40 +60,41 @@ void handle_int(char *str, size_t size, size_t *n, va_list args)
  */
 char *_strtok(char *str, const char *delimeter)
 {
-        static char *last_token;
-        char *token_start;
-        int in_quotes;
+	static char *last_token;
+	char *token_start;
+	int in_quotes;
 
-        in_quotes = 0;
+	in_quotes = 0;
 
-        if (str != NULL)
-                last_token = str;
-        else if (last_token == NULL)
-                return (NULL);
+	if (str != NULL)
+		last_token = str;
+	else if (last_token == NULL)
+		return (NULL);
 
-        token_start = last_token;
+	token_start = last_token;
 
-        while (*last_token != '\0')
-        {
-                if (*last_token == '"')
-                        in_quotes = !in_quotes;
-                else if (*last_token == *delimeter && !in_quotes)
-                {
-                        *last_token = '\0';
-                        last_token++;
-                        return (token_start);
-                }
-                last_token++;
-        }
+	while (*last_token != '\0')
+	{
+		if (*last_token == '"')
+			in_quotes = !in_quotes;
+		else if (*last_token == *delimeter && !in_quotes)
+		{
+			*last_token = '\0';
+			last_token++;
+			return (token_start);
+		}
+		last_token++;
+	}
 
-        if (*token_start == '\0')
-        {
-                last_token = NULL;
-                return (NULL);
-        }
+	if (*token_start == '\0')
+	{
+		last_token = NULL;
+		return (NULL);
+	}
 
-        return (token_start);
+	return (token_start);
 }
+
 /**
  * _strcmp - compares two strings
  * @s1: string 1
@@ -146,8 +148,8 @@ int _atoi(const char *str)
 		{
 			return ((sign == 1) ? INT_MAX : INT_MIN);
 		}
-		str++;
+	str++;
 	}
 
 	return (sign * result);
-}
+	}
