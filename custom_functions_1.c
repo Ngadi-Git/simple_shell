@@ -66,50 +66,6 @@ int _strcmp(const char *s1, const char *s2)
 	}
 	return (*(const unsigned char *)s1 - *(const unsigned char *)s2);
 }
-/**
- * c_strtok - Breaks a string into tokens.
- * @str: String to tokenize.
- * @delimeter: Delimiter characters.
- *
- * Return: Pointer to the next token, or NULL if no more tokens
- */
-/**
-char *c_strtok(char *str, const char *delimeter)
-{
-	static char *last_token;
-	char *token_start;
-	int in_quotes;
-
-	in_quotes = 0;
-
-	if (str != NULL)
-		last_token = str;
-	else if (last_token == NULL)
-		return (NULL);
-
-	token_start = last_token;
-
-	while (*last_token != '\0')
-	{
-		if (*last_token == '"')
-			in_quotes = !in_quotes;
-		else if (*last_token == *delimeter && !in_quotes)
-		{
-			*last_token = '\0';
-			last_token++;
-			return (token_start);
-		}
-		last_token++;
-	}
-
-	if (*token_start == '\0')
-	{
-		last_token = NULL;
-		return (NULL);
-	}
-
-	return (token_start);
-}**/
 
 /**
  * _atoi - converts string

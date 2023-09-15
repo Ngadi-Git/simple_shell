@@ -86,7 +86,6 @@ void executeCommand(char **cmd_argv, char *name)
 		executeRelPATH(cmd_argv, name);
 }
 
-
 /**
  * main - Entry point for shell program
  * @argc: Number of command line arguments
@@ -96,25 +95,18 @@ void executeCommand(char **cmd_argv, char *name)
  */
 int main(int argc, char *argv[])
 {
-        char *input = NULL;
-        char *cmd_argv[MAX_ARGS];
-        int should_exit = 0;
+	char *input = NULL;
+	char *cmd_argv[MAX_ARGS];
+	int should_exit = 0;
 
-        (void) argc;
+	(void) argc;
 
-        while (!should_exit)
-        {
-                readInput(&input);
-                parseInput(input, cmd_argv);
-                if (strcmp(cmd_argv[0], "exit") == 0)
-                {
-                        should_exit = 1;
-                }
-                else
-                {
-                        executeCommand(cmd_argv, argv[0]);
-                }
-        }
-        free(input);
-        return (0);
+	while (!should_exit)
+	{
+		readInput(&input);
+		parseInput(input, cmd_argv);
+		executeCommand(cmd_argv, argv[0]);
+	}
+	free(input);
+	return (0);
 }
