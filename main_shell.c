@@ -11,7 +11,7 @@ void readInput(char **input)
 {
 	size_t input_len;
 	ssize_t read_input;
-	const char *prompt = "#cisfun$ ";
+	const char *prompt = "$ ";
 
 	input_len = 0;
 	if (isatty(STDIN_FILENO))
@@ -80,6 +80,8 @@ void executeCommand(char **cmd_argv, char *name)
 			exit(0);
 		}
 	}
+	else if (strcmp(cmd_argv[0], "cd") == 0)
+		change_dir(cmd_argv);
 	else if (_strcmp(cmd_argv[0], "setenv") == 0)
 		handleSetenv(cmd_argv);
 	else if (_strcmp(cmd_argv[0], "unsetenv") == 0)

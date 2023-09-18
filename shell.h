@@ -33,4 +33,6 @@ void handle_int(char *str, size_t size, size_t *n, va_list args);
 char *_strtok(char *str, const char *delimeter);
 int handleUnsetenv(char **cmd_argv);
 int handleSetenv(char **cmd_argv);
+void change_dir(char **cmd_argv);
+
 #endif
