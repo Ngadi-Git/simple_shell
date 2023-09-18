@@ -80,6 +80,10 @@ void executeCommand(char **cmd_argv, char *name)
 			exit(0);
 		}
 	}
+	else if (_strcmp(cmd_argv[0], "setenv") == 0)
+		handleSetenv(cmd_argv);
+	else if (_strcmp(cmd_argv[0], "unsetenv") == 0)
+		handleUnsetenv(cmd_argv);
 	else if (cmd_argv[0][0] == '/')
 		executeAbsPATH(cmd_argv, name);
 	else

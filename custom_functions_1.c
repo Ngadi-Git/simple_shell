@@ -52,7 +52,7 @@ void handle_int(char *str, size_t size, size_t *n, va_list args)
 }
 
 /**
- * c_strtok - Breaks a string into tokens.
+ * _strtok - Breaks a string into tokens.
  * @str: String to tokenize.
  * @delimeter: Delimiter characters.
  *

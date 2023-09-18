@@ -22,11 +22,8 @@ hsh main.c shell.c test_ls_2
 hsh main.c shell.c test_ls_2
 $
 
-##Output
+##output
 
-
-Unless specified otherwise, your program must have the exact same output as sh (/bin/sh) as well as the exact same error output.
-The only difference is when you print an error, the name of the program is equivalent to your argv[0] (See below)
 Example of error with sh:
 
 $ echo "qwerty" | /bin/sh
