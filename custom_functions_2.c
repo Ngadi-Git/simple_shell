@@ -50,14 +50,13 @@ void change_dir(char **cmd_argv)
 			}
 		}
 
-		else if (strcmp(cmd_argv[1], "-") == 0)
+		else if (_strcmp(cmd_argv[1], "-") == 0)
 		{
 			char *prev_dir = getenv("OLDPWD");
 
 			if (prev_dir != NULL)
 			{
 				if (chdir(prev_dir) == 0) {
-					write(STDOUT_FILENO, prev_dir, 30);
 					setenv("PWD", prev_dir, 1);
 				}
 				else
