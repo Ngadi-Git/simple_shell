@@ -34,5 +34,6 @@ char *_strtok(char *str, const char *delimeter);
 int handleUnsetenv(char **cmd_argv);
 int handleSetenv(char **cmd_argv);
 void change_dir(char **cmd_argv);
-
+void _sprintf(char *str, const char *format, ...);
+char *my_strchr(const char *s, int c);
 #endif
